@@ -2,10 +2,10 @@
 
 <div id="my-timeline"></div>
 
-<?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdirtimelineslider/js/jquery.roadmap.min.js'; ?>
-<?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdirtimelineslider/js/timeline-slider.js'; ?>
-<?php $GLOBALS['TL_CSS'][] = '/bundles/pdirtimelineslider/css/jquery.roadmap.min.css'; ?>
-<?php $GLOBALS['TL_CSS'][] = '/bundles/pdirtimelineslider/css/timeline-slider.scss|static'; ?>
+<?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdiranimatedtimeline/js/jquery.roadmap.min.js'; ?>
+<?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdiranimatedtimeline/js/timeline-slider.js'; ?>
+<?php $GLOBALS['TL_CSS'][] = '/bundles/pdiranimatedtimeline/css/jquery.roadmap.min.css'; ?>
+<?php $GLOBALS['TL_CSS'][] = '/bundles/pdiranimatedtimeline/css/timeline-slider.scss|static'; ?>
 
 <?php
 $GLOBALS['TL_BODY'][] = "
