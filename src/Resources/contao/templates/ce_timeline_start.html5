@@ -1,6 +1,6 @@
-<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+<div class="<?= $this->class ?> <?= $this->orientation ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
-<div id="my-timeline"></div>
+<div id="timeline<?= $this->id ?>"></div>
 
 <?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdiranimatedtimeline/js/jquery.roadmap.min.js'; ?>
 <?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdiranimatedtimeline/js/timeline-slider.js'; ?>
@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
         events.push(element);
     });
 
-    $('#my-timeline').roadmap(events, {
+    $('#timeline".$this->id."').roadmap(events, {
         eventsPerSlide: ".$this->eventsPerSlide.",
         slide: 1,
         prevArrow: '<',
