@@ -29,7 +29,7 @@
         "symfony/phpunit-bridge": "^3.2"
     },
     "extra": {
-        "contao-manager-plugin": "Pdir\\ConsentManagementBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Pdir\\AnimatedTimelineBundle\\ContaoManager\\Plugin"
     },
     "autoload": {
         "psr-4": {
@@ -46,7 +46,7 @@
         "source": "https://github.com/pdir/animated-timeline-bundle"
     },
     "suggest": {
-        "contao-themes-net/mate-theme-bundlep": "Animated timeline bundle can easily integrate into MATE theme.",
+        "contao-themes-net/mate-theme-bundle": "Animated timeline bundle can easily integrate into MATE theme.",
         "contao-themes-net/nature-theme-bundle": "Animated timeline bundle can easily integrate into NATURE theme.",
         "contao-themes-net/odd-theme-bundle": "Animated timeline bundle can easily integrate into ODD theme."
     }
