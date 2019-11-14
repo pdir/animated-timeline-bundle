@@ -8,39 +8,32 @@ Animated Timeline Bundle for Contao CMS
 About
 -----
 
-add desc and image
+The Animated Timeline Bundle is a jQuery extension based on [jQuery Roadmap](https://github.com/stefanomarra/jquery-roadmap), which allows you to render content in a dynamic timeline with fadeIn animation.
+
+You can choose between a horizontal and vertical timeline. You can also combine both so that the horizontal timeline is displayed on desktop devices and the vertical timeline is displayed on mobile devices.
 
 **Deutsch**
 
-Füge Beschreibung + Bild hinzu
+Das Animated Timeline Bundle ist eine **jQuery**-Erweiterung auf Basis von [jQuery Roadmap](https://github.com/stefanomarra/jquery-roadmap), mit der man Inhalte in einem dynamischen Zeitstrahl mit fadeIn-Animation darstellen kann. 
+
+Dabei hat man die Wahl zwischen einem **horizontalen und vertikalen Zeitstrahl** und kann zusätzlich auch beides miteinander kombinieren, sodass auf Desktop-Geräten der horizontale Zeitstrahl und auf mobilen Geräten der vertikale Zeitstrahl dargestellt wird.
 
 
-System requirements
+System requirements / Systemvoraussetzungen
 -------------------
 
 * [Contao 4.4](https://github.com/contao/contao-bundle) or higher
 
 Installation & Configuration
 ----------------------------
-* [Dokumentation](https://docs.pdir.de/#/animated-timeline-bundle/index)
+* [Dokumentation](http://localhost:3000/#/animated-timeline/index)
 
 
-Dependencies
+Dependencies / Abhängigkeiten
 ------------
 
-add dependencies
+* [jQuery Roadmap](https://github.com/stefanomarra/jquery-roadmap)
 
 License
 -------
 GNU Lesser General Public License v3.0
-
-
-Tests & Coding Standard Checks
-------------------------------
-
-Run the PHP-CS-Fixer and the unit test before you release your bundle:
-
-```bash
-vendor/bin/php-cs-fixer fix -v
-vendor/bin/phpunit
-```
