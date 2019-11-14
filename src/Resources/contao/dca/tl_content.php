@@ -16,7 +16,7 @@
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide,timeline_prevLabel,timeline_nextLabel;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStop'] = '{type_legend},type;{template_legend:hide},timelineStop_customTpl;{invisible_legend:hide},invisible,start,stop';
 
@@ -39,6 +39,22 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_eventsPerSlide'] = [
     'inputType' => 'text',
     'eval' => ['maxlength' => 10, 'rgxp' => 'digit', 'tl_class' => 'w50'],
     'sql' => "int(10) unsigned NOT NULL default '0'",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['timeline_prevLabel'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_prevLabel'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => ['tl_class' => 'w50'],
+    'sql' => "varchar(255) NOT NULL default 'Zurück'",
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['timeline_nextLabel'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_nextLabel'],
+    'exclude' => true,
+    'inputType' => 'text',
+    'eval' => ['tl_class' => 'w50'],
+    'sql' => "varchar(255) NOT NULL default 'Weiter'",
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timelineElement_customTpl'] = [

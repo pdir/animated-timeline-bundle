@@ -39,6 +39,8 @@ class TimelineStartElement extends \ContentElement
         } else {
             $this->Template->orientation = $this->timeline_orientation;
             $this->Template->eventsPerSlide = $this->timeline_eventsPerSlide;
+            $this->Template->prevLabel = $this->timeline_prevLabel;
+            $this->Template->nextLabel = $this->timeline_nextLabel;
         }
     }
 }

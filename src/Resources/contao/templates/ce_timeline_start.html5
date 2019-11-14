@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
         if($(this).find('h4:not(:first-child)').text() != '') content += $(this).find('h4:not(:first-child)').wrap('<h4/>').parent().html();
         if($(this).find('h5:not(:first-child)').text() != '') content += $(this).find('h5:not(:first-child)').wrap('<h5/>').parent().html();
         if($(this).find('h6:not(:first-child)').text() != '') content += $(this).find('h6:not(:first-child)').wrap('<h6/>').parent().html();
-        content += $(this).find('p').text();
+        content += $(this).find('p').html();
         var element = {};
         element.date = headline;
         element.content = content;
@@ -32,8 +32,8 @@ jQuery(document).ready(function($) {
     $('#timeline".$this->id."').roadmap(events, {
         eventsPerSlide: ".$this->eventsPerSlide.",
         slide: 1,
-        prevArrow: '<',
-        nextArrow: '>',
+        prevArrow: '".$this->prevLabel."',
+        nextArrow: '".$this->nextLabel."',
         orientation: '".$this->orientation."'
     });
 

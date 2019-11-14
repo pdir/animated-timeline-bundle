@@ -22,3 +22,5 @@ $GLOBALS['TL_LANG']['tl_content']['timeline_eventsPerSlide'] = ['Elemente pro Sl
 $GLOBALS['TL_LANG']['tl_content']['timelineElement_customTpl'] = ['Individuelles Template', 'Hier können Sie ein individuelles Template auswählen.'];
 $GLOBALS['TL_LANG']['tl_content']['timelineStart_customTpl'] = ['Individuelles Template', 'Hier können Sie ein individuelles Template auswählen.'];
 $GLOBALS['TL_LANG']['tl_content']['timelineStop_customTpl'] = ['Individuelles Template', 'Hier können Sie ein individuelles Template auswählen.'];
+$GLOBALS['TL_LANG']['tl_content']['timeline_prevLabel'] = ['Zurück-Button', 'Hier können Sie definieren was angezeigt werden soll, wenn der Zurück-Button angezeigt wird.'];
+$GLOBALS['TL_LANG']['tl_content']['timeline_nextLabel'] = ['Weiter-Button', 'Hier können Sie definieren was angezeigt werden soll, wenn der Weiter-Button angezeigt wird.'];
