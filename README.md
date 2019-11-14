@@ -16,7 +16,6 @@ Das Animated Timeline Bundle ist eine **jQuery**-Erweiterung auf Basis von [jQue
 
 Dabei hat man die Wahl zwischen einem **horizontalen und vertikalen Zeitstrahl** und kann zusätzlich auch beides miteinander kombinieren, sodass auf Desktop-Geräten der horizontale Zeitstrahl und auf mobilen Geräten der vertikale Zeitstrahl dargestellt wird.
 
-
 System requirements / Systemvoraussetzungen
 -------------------
 
@@ -24,7 +23,7 @@ System requirements / Systemvoraussetzungen
 
 Installation & Configuration
 ----------------------------
-* [Dokumentation](http://localhost:3000/#/animated-timeline/index)
+* [Dokumentation](https://docs.pdir.de/#/animated-timeline/index)
 
 
 Dependencies / Abhängigkeiten
@@ -35,3 +34,14 @@ Dependencies / Abhängigkeiten
 License
 -------
 GNU Lesser General Public License v3.0
+
+Screenshots
+-------
+
+Horizontal / Auto Orientation:
+
+![](https://docs.pdir.de/_images/animated-timeline/timeline_horizontal.png)
+
+Vertical Orientation:
+
+![](https://docs.pdir.de/_images/animated-timeline/timeline_vertical.png)
