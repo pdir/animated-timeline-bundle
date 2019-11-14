@@ -5,8 +5,6 @@ Animated Timeline Bundle for Contao CMS
 [![Total Downloads](https://poser.pugx.org/pdir/animated-timeline-bundle/downloads)](https://packagist.org/packages/pdir/animated-timeline-bundle)
 [![License](https://poser.pugx.org/pdir/animated-timeline-bundle/license)](https://packagist.org/packages/pdir/animated-timeline-bundle)
 
-About
------
 
 The Animated Timeline Bundle is a jQuery extension based on [jQuery Roadmap](https://github.com/stefanomarra/jquery-roadmap), which allows you to render content in a dynamic timeline with fadeIn animation.
 
