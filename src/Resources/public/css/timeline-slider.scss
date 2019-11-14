@@ -27,6 +27,25 @@
   }
 }
 
+@media (min-width:993px) {
+  .roadmap.roadmap--orientation-horizontal, .roadmap.roadmap--orientation-auto .roadmap__events__event {
+    &:nth-child(even) .event .event__date {
+      bottom: -140px;
+    }
+
+    &:nth-child(odd) .event .event__date {
+      top: -140px;
+    }
+
+    &:nth-child(even), &:nth-child(odd) {
+      .event .event__date {
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+}
+
 .roadmap.roadmap--orientation-vertical.roadmap--initialized {
   margin: 70px auto;
   position: relative;
