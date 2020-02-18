@@ -11,14 +11,19 @@
         <div class="slider-wrapper">
           <?php while($this->sliderImages->next()): ?>
             <?php
+            $meta = deserialize($this->sliderImages->meta);
             $picture = \Picture::create($this->sliderImages->path, $this->size)->getTemplateData();
-            //$picture['alt'] = specialchars($arrItem['alt']);
-            //$picture['title'] = specialchars($arrItem['title']);
+            if($meta) {
+              $picture['alt'] = specialchars($meta[$GLOBALS['TL_LANGUAGE']]['alt']);
+              $picture['title'] = specialchars($meta[$GLOBALS['TL_LANGUAGE']]['title']);
+            }
             $objTemplate->picture = $picture;
             ?>
-            <figure class="image_container">
-              <?php $this->insert('picture_default', $objTemplate->picture); ?>
-            </figure>
+            <div class="ce_image">
+              <figure class="image_container">
+                <?php $this->insert('picture_default', $objTemplate->picture); ?>
+              </figure>
+            </div>
           <?php endwhile; ?>
         </div>
       </div>
