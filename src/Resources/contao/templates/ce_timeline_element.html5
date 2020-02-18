@@ -1,13 +1,38 @@
-<div class="<?= $this->class ?> block"<?= $this->cssID ?> style="display:none;<?php if ($this->style): ?><?= $this->style ?><?php endif; ?>">
-    <?php $this->block('content'); ?>
+<div class="<?= $this->class ?> slider-element block"<?= $this->cssID ?> style="display:none;<?php if ($this->style): ?><?= $this->style ?><?php endif; ?>">
+  <?php $this->block('content'); ?>
 
-    <?php if ($this->headline): ?>
-        <<?= $this->hl ?>>
-                <?= $this->headline ?>
-        </<?= $this->hl ?>>
-    <?php endif; ?>
+  <?php if ($this->headline): ?>
+    <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
+  <?php endif; ?>
 
-    <?= $this->text ?>
+  <?php if($this->sliderImages): ?>
+    <div class="image-slider">
+      <div class="content-slider-roadmap" data-config="0,300,0,1">
+        <div class="slider-wrapper">
+          <?php while($this->sliderImages->next()): ?>
+            <?php
+            $picture = \Picture::create($this->sliderImages->path, $this->size)->getTemplateData();
+            //$picture['alt'] = specialchars($arrItem['alt']);
+            //$picture['title'] = specialchars($arrItem['title']);
+            $objTemplate->picture = $picture;
+            ?>
+            <figure class="image_container">
+              <?php $this->insert('picture_default', $objTemplate->picture); ?>
+            </figure>
+          <?php endwhile; ?>
+        </div>
+      </div>
+      <nav class="slider-control-roadmap">
+        <a href="#" class="slider-prev">&larr;</a>
+        <span class="slider-menu"></span>
+        <a href="#" class="slider-next">&rarr;</a>
+      </nav>
+    </div>
+  <?php elseif ($this->addImage): ?>
+    <div class="image"><?php $this->insert('image', $this->arrData); ?></div>
+  <?php endif; ?>
 
-    <?php $this->endblock(); ?>
+  <?= $this->text ?>
+
+  <?php $this->endblock(); ?>
 </div>

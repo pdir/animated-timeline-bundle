@@ -16,6 +16,10 @@
 
 namespace Pdir\AnimatedTimelineBundle\Element;
 
+use Contao\FilesModel;
+use Contao\System;
+use Contao\File;
+
 class TimelineSliderElement extends \ContentElement
 {
     /**
@@ -38,5 +42,28 @@ class TimelineSliderElement extends \ContentElement
             $this->Template->title = $this->headline;
             $this->Template->text = $this->text;
         }
+
+        $this->Template->addImage = false;
+
+        // Add an image
+        if ($this->addImage && $this->singleSRC != '')
+        {
+            $this->Template->addImage = true;
+            $objModel = FilesModel::findByUuid($this->singleSRC);
+
+            if ($objModel !== null && is_file(System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path))
+            {
+                $this->singleSRC = $objModel->path;
+                $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
+            }
+        }
+
+        // Image Content Slider
+        if($this->multiSRC) {
+            $objFiles = \FilesModel::findMultipleByUuids(deserialize($this->multiSRC));
+            $this->Template->sliderImages = $objFiles;
+            $this->Template->size = deserialize($this->size);
+        }
+
     }
 }

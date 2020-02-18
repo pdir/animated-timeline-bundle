@@ -29,7 +29,7 @@ jQuery(document).ready( function($) {
         var contentHeight = $(this).find(".event__content").height();
         $(this).css("height",contentHeight+"px");
       });
-    }, 200);
+    }, 100);
   }
 
   if( $('.ce_timelineSliderStart:not(.vertical)').length > 0 ) {
@@ -50,23 +50,34 @@ jQuery(document).ready( function($) {
 
   function setRoadmapHorizontalHeightDesktop() {
     setTimeout(function(){
-      var height = 0;
+      var heightOdd = 0;
+      var heightEven = 0;
 
-      $(".ce_timelineSliderStart:not(.vertical) li.roadmap__events__event").each( function() {
+      $(".ce_timelineSliderStart:not(.vertical) li.roadmap__events__event:nth-child(odd)").each( function() {
+        var event = $(this).find(".event");
+        var eventHeight = event.height() + parseFloat(event.css('top').replace('px'));
+
+        if(eventHeight > heightOdd) {
+          heightOdd = eventHeight;
+        }
+      });
+      $(".ce_timelineSliderStart:not(.vertical) li.roadmap__events__event:nth-child(odd)").height(heightOdd);
+      $(".ce_timelineSliderStart:not(.vertical) .roadmap__events").css("padding-bottom",heightOdd + "px");
+
+      $(".ce_timelineSliderStart:not(.vertical) li.roadmap__events__event:nth-child(even)").each( function() {
         var event = $(this).find(".event");
         var eventHeight = event.height() + parseFloat(event.css('bottom').replace('px'));
 
-        if(eventHeight > height) {
-          height = eventHeight;
+        if(eventHeight > heightEven) {
+          heightEven = eventHeight;
         }
-
-        $(".ce_timelineSliderStart:not(.vertical) li.roadmap__events__event").height(height);
-        $(".ce_timelineSliderStart:not(.vertical) .roadmap__events").css("padding",height + "px 0");
       });
+      $(".ce_timelineSliderStart:not(.vertical) li.roadmap__events__event:nth-child(even)").height(heightEven);
+      $(".ce_timelineSliderStart:not(.vertical) .roadmap__events").css("padding-top",heightEven + "px");
 
       var sliderHeight = $(".ce_timelineSliderStart:not(.vertical)").height();
-      $(".ce_timelineSliderStart:not(.vertical)").height(sliderHeight);
-    }, 200);
+      $(".ce_timelineSliderStart:not(.vertical)").height(heightOdd + heightEven);
+    }, 500);
   }
 
   function setRoadmapAutoHeightMobile() {
@@ -76,7 +87,7 @@ jQuery(document).ready( function($) {
         var eventHeight = $(this).find(".event__date").height() + $(this).find(".event__content").height();
         $(this).height(eventHeight);
       });
-    }, 200);
+    }, 500);
   }
 
 

@@ -14,7 +14,7 @@
  * file that was distributed with this source code.
  */
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{content_slider_legend},multiSRC,size;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide,timeline_prevLabel,timeline_nextLabel;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 

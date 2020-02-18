@@ -40,7 +40,7 @@ class TimelineStopElement extends \ContentElement
             /** @var BackendTemplate|object $objTemplate */
             $objTemplate = new \BackendTemplate($this->strTemplate);
             $this->Template = $objTemplate;
-            $this->Template->wildcard = '### TIMELINE SLIDER START ###';
+            $this->Template->wildcard = '### TIMELINE SLIDER STOP ###';
         }
     }
 }

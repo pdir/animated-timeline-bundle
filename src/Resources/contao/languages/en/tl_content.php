@@ -15,6 +15,7 @@
  */
 
 $GLOBALS['TL_LANG']['tl_content']['timeline_legend'] = 'Animated Timeline Settings';
+$GLOBALS['TL_LANG']['tl_content']['content_slider_legend'] = 'Content Slider Settings';
 $GLOBALS['TL_LANG']['tl_content']['timeline_orientation'] = ['Orientation', 'Here you can choose the timeline orientation.'];
 $GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options']['horizontal'] = 'Horizontal';
 $GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options']['vertical'] = 'Vertical';
