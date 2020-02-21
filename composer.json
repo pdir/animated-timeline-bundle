@@ -42,11 +42,24 @@
     },
     "support": {
         "issues": "https://github.com/pdir/animated-timeline-bundle/issues",
-        "source": "https://github.com/pdir/animated-timeline-bundle"
+        "source": "https://github.com/pdir/animated-timeline-bundle",
+        "docs":"https://docs.pdir.de/#/animated-timeline/index",
+        "donate": "https://contao-themes.net/sponsoring.html"
     },
+    "funding": [
+        {
+            "type": "patreon",
+            "url": "https://www.patreon.com/user?u=28241718"
+        },
+        {
+            "type": "corporate",
+            "url": "https://contao-themes.net/sponsoring.html"
+        }
+    ],
     "suggest": {
-        "contao-themes-net/mate-theme-bundle": "Animated timeline bundle can easily integrate into MATE theme.",
-        "contao-themes-net/nature-theme-bundle": "Animated timeline bundle can easily integrate into NATURE theme.",
-        "contao-themes-net/odd-theme-bundle": "Animated timeline bundle can easily integrate into ODD theme."
+        "contao-themes-net/mate-theme-bundle": "Animated timeline bundle can easily integrate into MATE theme. / Animated Timeline Bundle kann einfach im MATE Theme integriert werden.",
+        "contao-themes-net/nature-theme-bundle": "Animated timeline bundle can easily integrate into NATURE theme. / Animated Timeline Bundle kann einfach im NATURE Theme integriert werden.",
+        "contao-themes-net/odd-theme-bundle": "Animated timeline bundle can easily integrate into ODD theme. / Animated Timeline Bundle kann einfach im ODD Theme integriert werden.",
+        "contao-themes-net/zero-one-theme-bundle": "Animated timeline bundle can easily integrate into 0.1 theme. / Animated Timeline Bundle kann einfach im 0.1 Theme integriert werden."
     }
 }
