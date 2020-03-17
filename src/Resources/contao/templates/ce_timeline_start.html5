@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
     if($(this).find('h4:not(:first-child)').text() != '') content += $(this).find('h4:not(:first-child)').prop('outerHTML');
     if($(this).find('h5:not(:first-child)').text() != '') content += $(this).find('h5:not(:first-child)').prop('outerHTML');
     if($(this).find('h6:not(:first-child)').text() != '') content += $(this).find('h6:not(:first-child)').prop('outerHTML');
-    content += $(this).find('p').prop('outerHTML');
+    if($(this).find('.ce_text').text() != '') content += $(this).find('.ce_text').prop('outerHTML');
     var element = {};
     element.date = headline;
     element.content = content;

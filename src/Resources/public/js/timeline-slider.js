@@ -1,18 +1,24 @@
 jQuery(document).ready( function($) {
 
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    $('.ce_timelineSliderStart').addClass('mobile-timeline');
+  }
+
   if( $('.ce_timelineSliderStart.vertical').length > 0 ) {
 
     $(document).scroll( function() {
-      var top_of_element = $(".ce_timelineSliderStart.vertical").offset().top + 30;
-      var bottom_of_element = $(".ce_timelineSliderStart.vertical").offset().top + $(".ce_timelineSliderStart.vertical").outerHeight();
-      var bottom_of_screen = $(window).scrollTop() + $(window).height();
-      var top_of_screen = $(window).scrollTop();
+      if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        var top_of_element = $(".ce_timelineSliderStart.vertical").offset().top + 30;
+        var bottom_of_element = $(".ce_timelineSliderStart.vertical").offset().top + $(".ce_timelineSliderStart.vertical").outerHeight();
+        var bottom_of_screen = $(window).scrollTop() + $(window).height();
+        var top_of_screen = $(window).scrollTop();
 
-      if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)) {
-        $('.ce_timelineSliderStart.vertical > div').addClass('roadmap--initialized');
-        setRoadmapVerticalHeight();
-      } else {
-        $('.ce_timelineSliderStart.vertical > div').removeClass('roadmap--initialized');
+        if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)) {
+          $('.ce_timelineSliderStart.vertical > div').addClass('roadmap--initialized');
+          setRoadmapVerticalHeight();
+        } else {
+          $('.ce_timelineSliderStart.vertical > div').removeClass('roadmap--initialized');
+        }
       }
     });
 
@@ -20,7 +26,9 @@ jQuery(document).ready( function($) {
       setRoadmapVerticalHeight();
     });
 
-    setRoadmapVerticalHeight();
+    if( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      setRoadmapVerticalHeight();
+    }
   }
 
   function setRoadmapVerticalHeight() {

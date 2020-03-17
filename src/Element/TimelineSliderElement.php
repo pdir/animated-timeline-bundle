@@ -62,7 +62,7 @@ class TimelineSliderElement extends \ContentElement
         if($this->multiSRC) {
             $objFiles = \FilesModel::findMultipleByUuids(deserialize($this->multiSRC));
             $this->Template->sliderImages = $objFiles;
-            $this->Template->size = deserialize($this->size);
+            $this->Template->size = deserialize($this->contentSliderSize);
         }
 
     }

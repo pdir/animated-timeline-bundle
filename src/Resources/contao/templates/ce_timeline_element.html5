@@ -37,7 +37,7 @@
     <div class="image"><?php $this->insert('image', $this->arrData); ?></div>
   <?php endif; ?>
 
-  <?= $this->text ?>
+  <div class="ce_text"><?= $this->text ?></div>
 
   <?php $this->endblock(); ?>
 </div>
