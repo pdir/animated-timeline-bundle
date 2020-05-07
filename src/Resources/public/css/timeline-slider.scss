@@ -4,6 +4,8 @@
   &.horizontal, &.auto {
     display: flex;
     align-items: center;
+    overflow: visible;
+    padding: 30px 0;
   }
 }
 
@@ -12,6 +14,10 @@
   visibility: hidden;
   position: relative;
   text-align: center;
+}
+
+.event__content .ce_text:first-child p:first-child {
+  margin-top: 0;
 }
 
 .image-slider {
@@ -49,6 +55,7 @@
     color: #000;
     font-size: 28px;
     position: absolute;
+    text-decoration: none;
   }
 
   .slider-prev {
@@ -282,6 +289,10 @@
   }
 
   .roadmap.roadmap--orientation-auto {
+    .event__date {
+      margin-bottom: 15px;
+    }
+
     .roadmap__events {
       padding: 0;
 
@@ -293,9 +304,7 @@
     .roadmap__events__event:nth-child(odd) .event {
       top: 0;
     }
-  }
 
-  .roadmap.roadmap--orientation-auto {
     .roadmap__navigation {
       >:last-child, >:first-child {
         float: none;

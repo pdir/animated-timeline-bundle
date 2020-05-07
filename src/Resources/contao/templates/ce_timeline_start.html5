@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 
   var events = [];
 
-  $('.ce_timelineSliderElement').each( function() {
+  $('#timeline".$this->id." ~ .ce_timelineSliderElement').each( function() {
     var headline = $(this).find('h2:first-child').text();
     var content = '';
     if($(this).find('.image').length > 0) content += $(this).find('.image').prop('outerHTML');
@@ -40,7 +40,9 @@ jQuery(document).ready(function($) {
     orientation: '".$this->orientation."'
   });
 
-  initializeContentSlider();
+  //setTimeout(function() {
+    initializeContentSlider();
+  //},900);
 
   $('.ce_timelineSliderStart:not(.vertical)').on('click', '.roadmap__navigation a', function() {
     setTimeout(function() {
@@ -55,7 +57,7 @@ jQuery(document).ready(function($) {
   });
 
   function initializeContentSlider() {
-    var e = document.querySelectorAll('.content-slider-roadmap, .slider-control-roadmap'), c, i;
+    var e = document.querySelectorAll('#timeline".$this->id." .content-slider-roadmap, #timeline".$this->id." .slider-control-roadmap'), c, i;
     for (i=0; i<e.length; i+=2) {
       c = e[i].getAttribute('data-config').split(',');
       new Swipe(e[i], {
