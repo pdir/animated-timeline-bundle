@@ -3,7 +3,7 @@
 <div id="timeline<?= $this->id ?>"></div>
 
 <?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdiranimatedtimeline/js/jquery.roadmap.min.js'; ?>
-<?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdiranimatedtimeline/js/timeline-slider.js'; ?>
+<?php $GLOBALS['TL_JAVASCRIPT'][] = '/bundles/pdiranimatedtimeline/js/timeline-slider.min.js'; ?>
 <?php $GLOBALS['TL_CSS'][] = '/bundles/pdiranimatedtimeline/css/jquery.roadmap.min.css'; ?>
 <?php $GLOBALS['TL_CSS'][] = '/bundles/pdiranimatedtimeline/css/timeline-slider.scss|static'; ?>
 
