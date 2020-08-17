@@ -85,9 +85,9 @@ jQuery(document).ready( function($) {
 
         var sliderHeight = $(this).height();
         $(this).height(heightOdd + heightEven);
-      }, 500);
-
       });
+
+      }, 500);
   }
 
   function setRoadmapAutoHeightMobile() {
