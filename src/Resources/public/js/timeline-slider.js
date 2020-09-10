@@ -9,12 +9,14 @@ jQuery(document).ready( function($) {
       var top_of_screen = $(window).scrollTop();
 
       if((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)) {
-        $('.ce_timelineSliderStart.vertical > div').addClass('roadmap--initialized');
+        $('.ce_timelineSliderStart > div').addClass('roadmap--initialized');
+
         setTimeout(function(){
           setRoadmapVerticalHeight();
         }, 100);
+
       } else if( top_of_screen < bottom_of_element ) {
-        $('.ce_timelineSliderStart.vertical > div').removeClass('roadmap--initialized');
+        $('.ce_timelineSliderStart > div').removeClass('roadmap--initialized');
       }
     });
 
@@ -91,7 +93,6 @@ jQuery(document).ready( function($) {
   }
 
   function setRoadmapAutoHeightMobile() {
-    console.log("setRoadmapAutoHeightMobile");
     setTimeout(function(){
       $(".ce_timelineSliderStart.auto li.roadmap__events__event").each( function() {
         var eventHeight = $(this).find(".event__date").height() + $(this).find(".event__content").height();

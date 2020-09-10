@@ -210,8 +210,11 @@
 .roadmap.roadmap--orientation-vertical,
 .roadmap.roadmap--orientation-auto {
   .roadmap__navigation {
-    height: 30px;
     padding: 0;
+
+    li {
+      height: 30px;
+    }
 
     * {
       position: relative;
