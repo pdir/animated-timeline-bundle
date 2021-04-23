@@ -23,7 +23,7 @@ System requirements / Systemvoraussetzungen
 
 Installation & Configuration
 ----------------------------
-* [Dokumentation](https://docs.pdir.de/#/animated-timeline/index)
+* [Dokumentation](https://pdir.de/docs/de/contao/extensions/animated-timeline/)
 
 
 Dependencies / Abhängigkeiten
