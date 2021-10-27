@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.0) – 2021-10-27
+
+- [feature] php 8 support
+
 ## [1.1.4](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.1.4) – 2020-09-10
 
 - [fix] scripts and css fixes
