@@ -28,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_orientation'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation'],
     'exclude' => true,
     'inputType' => 'select',
-    'options' => $GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'],
+    'options' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'],
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
     'sql' => "TEXT null",
 ];
