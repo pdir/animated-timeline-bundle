@@ -18,10 +18,12 @@ declare(strict_types=1);
 
 namespace Pdir\AnimatedTimelineBundle\Element;
 
+use Contao\BackendTemplate;
+use Contao\ContentElement;
 use Contao\FilesModel;
 use Contao\System;
 
-class TimelineSliderElement extends \ContentElement
+class TimelineSliderElement extends ContentElement
 {
     /**
      * Template.
@@ -38,7 +40,7 @@ class TimelineSliderElement extends \ContentElement
         if (TL_MODE === 'BE') {
             $this->strTemplate = 'be_wildcard';
             /** @var BackendTemplate|object $objTemplate */
-            $objTemplate = new \BackendTemplate($this->strTemplate);
+            $objTemplate = new BackendTemplate($this->strTemplate);
             $this->Template = $objTemplate;
             $this->Template->title = $this->headline;
             $this->Template->text = $this->text;
@@ -59,7 +61,7 @@ class TimelineSliderElement extends \ContentElement
 
         // Image Content Slider
         if ($this->multiSRC) {
-            $objFiles = \FilesModel::findMultipleByUuids(deserialize($this->multiSRC));
+            $objFiles = FilesModel::findMultipleByUuids(deserialize($this->multiSRC));
             $this->Template->sliderImages = $objFiles;
             $this->Template->size = deserialize($this->contentSliderSize);
         }

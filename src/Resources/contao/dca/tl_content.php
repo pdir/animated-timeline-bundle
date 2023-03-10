@@ -16,6 +16,24 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
+use Contao\Backend;
+use Contao\BackendUser;
+use Contao\System;
+
+/*
+ * Animated timeline bundle for Contao Open Source CMS
+ *
+ * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ *
+ * @package    animated-timeline-bundle
+ * @link       https://pdir.de
+ * @license    LGPL-3.0+
+ * @author     Philipp Seibt <develop@pdir.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{content_slider_legend},multiSRC,contentSliderSize;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide,timeline_prevLabel,timeline_nextLabel;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
@@ -91,7 +109,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderSize'] = [
     'exclude' => true,
     'inputType' => 'imageSize',
     'eval' => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
-    'options_callback' => static fn () => Contao\System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(Contao\BackendUser::getInstance()),
+    'options_callback' => static fn () => System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(BackendUser::getInstance()),
     'sql' => 'TEXT null',
 ];
 

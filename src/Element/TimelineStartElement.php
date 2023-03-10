@@ -18,6 +18,8 @@ declare(strict_types=1);
 
 namespace Pdir\AnimatedTimelineBundle\Element;
 
+use Contao\BackendTemplate;
+
 class TimelineStartElement extends \ContentElement
 {
     /**
@@ -35,7 +37,7 @@ class TimelineStartElement extends \ContentElement
         if (TL_MODE === 'BE') {
             $this->strTemplate = 'be_wildcard';
             /** @var BackendTemplate|object $objTemplate */
-            $objTemplate = new \BackendTemplate($this->strTemplate);
+            $objTemplate = new BackendTemplate($this->strTemplate);
             $this->Template = $objTemplate;
             $this->Template->wildcard = $GLOBALS['TL_LANG']['tl_content']['timeline_orientation'][0].': '.$GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'][$this->timeline_orientation].' / '.$GLOBALS['TL_LANG']['tl_content']['timeline_eventsPerSlide'][0].': '.$this->timeline_eventsPerSlide;
         } else {
