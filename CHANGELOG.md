@@ -1,5 +1,20 @@
 # Changelog
 
+[//]: <> (
+Types of changes
+    Added for new Addeds.
+    Changed for changes in existing functionality.
+    Deprecated for soon-to-be removed Addeds.
+    Removed for now removed Addeds.
+    Fixed for any bug fixes.
+    Security in case of vulnerabilities.
+)
+
+
+## [1.2.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.1) – 2023-03-09
+
+- [Fixed] warning in debug mode
+
 ## [1.2.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.0) – 2021-10-27
 
 - [feature] php 8 support
