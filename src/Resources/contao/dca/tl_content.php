@@ -1,9 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2019 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ *
+ * @package    animated-timeline-bundle
+ * @link       https://pdir.de
+ * @license    LGPL-3.0+
+ * @author     Philipp Seibt <develop@pdir.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+use Contao\Backend;
+use Contao\BackendUser;
+use Contao\System;
+
+/*
+ * Animated timeline bundle for Contao Open Source CMS
+ *
+ * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -30,7 +50,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_orientation'] = [
     'inputType' => 'select',
     'options' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'],
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
-    'sql' => "TEXT null",
+    'sql' => 'TEXT null',
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_eventsPerSlide'] = [
@@ -101,8 +121,6 @@ class tl_content_timeline extends Backend
 {
     /**
      * Return all content element templates as array.
-     *
-     * @param DataContainer $dc
      *
      * @return array
      */

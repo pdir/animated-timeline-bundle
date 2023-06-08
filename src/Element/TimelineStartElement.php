@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2019 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -15,6 +17,8 @@
  */
 
 namespace Pdir\AnimatedTimelineBundle\Element;
+
+use Contao\BackendTemplate;
 
 class TimelineStartElement extends \ContentElement
 {
@@ -28,12 +32,12 @@ class TimelineStartElement extends \ContentElement
     /**
      * Generate the content element.
      */
-    protected function compile()
+    protected function compile(): void
     {
         if (TL_MODE === 'BE') {
             $this->strTemplate = 'be_wildcard';
             /** @var BackendTemplate|object $objTemplate */
-            $objTemplate = new \BackendTemplate($this->strTemplate);
+            $objTemplate = new BackendTemplate($this->strTemplate);
             $this->Template = $objTemplate;
             $this->Template->wildcard = $GLOBALS['TL_LANG']['tl_content']['timeline_orientation'][0].': '.$GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'][$this->timeline_orientation].' / '.$GLOBALS['TL_LANG']['tl_content']['timeline_eventsPerSlide'][0].': '.$this->timeline_eventsPerSlide;
         } else {
