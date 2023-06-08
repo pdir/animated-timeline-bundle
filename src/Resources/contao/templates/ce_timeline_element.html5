@@ -1,5 +1,4 @@
 <div class="<?= $this->class ?> slider-element block"<?= $this->cssID ?> style="display:none;<?php if ($this->style): ?><?= $this->style ?><?php endif; ?>">
-  <?php $this->block('content'); ?>
 
   <?php if ($this->headline): ?>
     <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>
@@ -17,11 +16,10 @@
               $picture['alt'] = specialchars($meta[$GLOBALS['TL_LANGUAGE']]['alt']);
               $picture['title'] = specialchars($meta[$GLOBALS['TL_LANGUAGE']]['title']);
             }
-            $objTemplate->picture = $picture;
             ?>
             <div class="ce_image">
               <figure class="image_container">
-                <?php $this->insert('picture_default', $objTemplate->picture); ?>
+                <?php $this->insert('picture_default', $picture); ?>
               </figure>
             </div>
           <?php endwhile; ?>
@@ -39,5 +37,4 @@
 
   <div class="ce_text"><?= $this->text ?></div>
 
-  <?php $this->endblock(); ?>
 </div>
