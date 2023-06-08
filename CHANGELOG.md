@@ -11,9 +11,12 @@ Types of changes
 )
 
 
-## [1.2.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.1) – 2023-03-09
+## [1.2.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.1) – 2023-06-08
 
-- [Fixed] warning in debug mode
+- [Fixed] warnings in debug mode
+- [Fixed] lightbox ([#4](https://github.com/pdir/animated-timeline-bundle/issues/4))
+- [Fixed] content slider ([#7](https://github.com/pdir/animated-timeline-bundle/issues/7))
+- [Fixed] image size translation
 
 ## [1.2.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.0) – 2021-10-27
 
