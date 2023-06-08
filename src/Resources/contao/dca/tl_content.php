@@ -17,8 +17,6 @@ declare(strict_types=1);
  */
 
 use Contao\Backend;
-use Contao\BackendUser;
-use Contao\System;
 
 /*
  * Animated timeline bundle for Contao Open Source CMS
@@ -109,12 +107,9 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderSize'] = [
     'exclude' => true,
     'inputType' => 'imageSize',
     'reference' => &$GLOBALS['TL_LANG']['MSC'],
-    'eval' => array('rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
-    'options_callback' => static function ()
-    {
-        return Contao\System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(Contao\BackendUser::getInstance());
-    },
-    'sql' => "TEXT null"
+    'eval' => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
+    'options_callback' => static fn () => Contao\System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(Contao\BackendUser::getInstance()),
+    'sql' => 'TEXT null',
 ];
 
 class tl_content_timeline extends Backend

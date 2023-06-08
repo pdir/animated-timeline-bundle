@@ -12,7 +12,7 @@ You can choose between a horizontal and vertical timeline. You can also combine 
 
 **Deutsch**
 
-Das Animated Timeline Bundle ist eine **jQuery**-Erweiterung für Contao 4 auf Basis von [jQuery Roadmap](https://github.com/stefanomarra/jquery-roadmap), mit der man Inhalte in einem dynamischen Zeitstrahl mit fadeIn-Animation darstellen kann. 
+Das Animated Timeline Bundle ist eine **jQuery**-Erweiterung für Contao 4 auf Basis von [jQuery Roadmap](https://github.com/stefanomarra/jquery-roadmap), mit der man Inhalte in einem dynamischen Zeitstrahl mit fadeIn-Animation darstellen kann.
 
 Dabei hat man die Wahl zwischen einem **horizontalen und vertikalen Zeitstrahl** und kann zusätzlich auch beides miteinander kombinieren, sodass auf Desktop-Geräten der horizontale Zeitstrahl und auf mobilen Geräten der vertikale Zeitstrahl dargestellt wird.
 
@@ -45,3 +45,11 @@ Horizontal / Auto Orientation:
 Vertical Orientation:
 
 ![](https://docs.pdir.de/_images/animated-timeline/timeline_vertical.png)
+
+Developing & Pull Request
+-------
+
+Run the PHP-CS-Fixer and the unit tests before you make a pull request to the bundle:
+
+    vendor/bin/ecs
+    vendor/bin/phpunit
