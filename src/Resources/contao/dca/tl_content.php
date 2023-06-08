@@ -85,9 +85,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStop_customTpl'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderSize'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['size'],
+    'label' => &$GLOBALS['TL_LANG']['MSC']['imgSize'],
     'exclude' => true,
     'inputType' => 'imageSize',
+    'reference' => &$GLOBALS['TL_LANG']['MSC'],
     'eval' => array('rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
     'options_callback' => static function ()
     {
