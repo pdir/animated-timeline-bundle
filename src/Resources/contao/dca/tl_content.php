@@ -119,8 +119,6 @@ class tl_content_timeline extends Backend
 {
     /**
      * Return all content element templates as array.
-     *
-     * @return array
      */
     public function getTimelineElementTemplates(DataContainer $dc): array
     {
