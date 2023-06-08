@@ -5,13 +5,13 @@
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
-          "name": "pdir GmbH",
-          "homepage": "https://pdir.de"
+            "name": "pdir GmbH",
+            "homepage": "https://pdir.de"
         },
         {
-          "name": "Philipp Seibt",
-          "homepage": "https://pdir.de",
-          "role": "Developer"
+            "name": "Philipp Seibt",
+            "homepage": "https://pdir.de",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -19,10 +19,16 @@
         "contao/core-bundle": "^4.4"
     },
     "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.4",
         "contao/manager-plugin": "^2.0",
         "contao/easy-coding-standard": "^3.0",
         "phpunit/phpunit": "^8.5 || ^9.5",
-        "symfony/phpunit-bridge": "^5.3 || ^6.0"
+        "symfony/phpunit-bridge": "^5.3 || ^6.0",
+        "phpstan/phpstan": "^0.12 || ^1.0",
+        "phpstan/phpstan-phpunit": "^0.12 || ^1.0",
+        "phpstan/phpstan-symfony": "^0.12 || ^1.0",
+        "slam/phpstan-extensions": "^4.0 || ^5.1 || ^6.0",
+        "thecodingmachine/phpstan-strict-rules": "^0.12 || ^1.0"
     },
     "extra": {
         "contao-manager-plugin": "Pdir\\AnimatedTimelineBundle\\ContaoManager\\Plugin"
@@ -40,7 +46,7 @@
     "support": {
         "issues": "https://github.com/pdir/animated-timeline-bundle/issues",
         "source": "https://github.com/pdir/animated-timeline-bundle",
-        "docs":"https://docs.pdir.de/#/animated-timeline/index",
+        "docs": "https://docs.pdir.de/#/animated-timeline/index",
         "donate": "https://contao-themes.net/sponsoring.html"
     },
     "funding": [
@@ -67,5 +73,14 @@
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "contao/manager-plugin": true
         }
+    },
+    "scripts": {
+        "all": [
+            "@cs-fixer",
+            "@unit-tests",
+            "@phpstan"
+        ],
+        "ecs": "@php tools/ecs/vendor/bin/ecs check */src */tests --fix --ansi",
+        "phpstan": "@php tools/phpstan/vendor/bin/phpstan analyze --ansi"
     }
 }

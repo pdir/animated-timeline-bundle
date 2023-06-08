@@ -18,6 +18,7 @@ declare(strict_types=1);
 
 use Contao\Backend;
 use Contao\BackendUser;
+use Contao\DataContainer;
 use Contao\System;
 
 /*
@@ -121,17 +122,17 @@ class tl_content_timeline extends Backend
      *
      * @return array
      */
-    public function getTimelineElementTemplates(DataContainer $dc)
+    public function getTimelineElementTemplates(DataContainer $dc): array
     {
         return $this->getTemplateGroup('ce_timeline_element');
     }
 
-    public function getTimelineStartTemplates(DataContainer $dc)
+    public function getTimelineStartTemplates(DataContainer $dc): array
     {
         return $this->getTemplateGroup('ce_timeline_start');
     }
 
-    public function getTimelineStopTemplates(DataContainer $dc)
+    public function getTimelineStopTemplates(DataContainer $dc): array
     {
         return $this->getTemplateGroup('ce_timeline_stop');
     }
