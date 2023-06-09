@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2019 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -16,7 +18,10 @@
 
 namespace Pdir\AnimatedTimelineBundle\Element;
 
-class TimelineStopElement extends \ContentElement
+use Contao\BackendTemplate;
+use Contao\ContentElement;
+
+class TimelineStopElement extends ContentElement
 {
     /**
      * Template.
@@ -28,17 +33,17 @@ class TimelineStopElement extends \ContentElement
     /**
      * Generate the content element.
      */
-    protected function compile()
+    protected function compile(): void
     {
         if (TL_MODE === 'BE') {
             $this->strTemplate = 'be_wildcard';
-            $this->Template = new \BackendTemplate($this->strTemplate);
+            $this->Template = new BackendTemplate($this->strTemplate);
         }
 
         if (TL_MODE === 'BE') {
             $this->strTemplate = 'be_wildcard';
             /** @var BackendTemplate|object $objTemplate */
-            $objTemplate = new \BackendTemplate($this->strTemplate);
+            $objTemplate = new BackendTemplate($this->strTemplate);
             $this->Template = $objTemplate;
             $this->Template->wildcard = '### TIMELINE SLIDER STOP ###';
         }

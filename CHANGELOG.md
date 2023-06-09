@@ -1,5 +1,23 @@
 # Changelog
 
+[//]: <> (
+Types of changes
+    Added for new Addeds.
+    Changed for changes in existing functionality.
+    Deprecated for soon-to-be removed Addeds.
+    Removed for now removed Addeds.
+    Fixed for any bug fixes.
+    Security in case of vulnerabilities.
+)
+
+
+## [1.2.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.1) – 2023-06-08
+
+- [Fixed] warnings in debug mode
+- [Fixed] lightbox ([#4](https://github.com/pdir/animated-timeline-bundle/issues/4))
+- [Fixed] content slider ([#7](https://github.com/pdir/animated-timeline-bundle/issues/7))
+- [Fixed] image size translation
+
 ## [1.2.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.0) – 2021-10-27
 
 - [feature] php 8 support

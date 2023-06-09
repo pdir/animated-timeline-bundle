@@ -1,9 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2019 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ *
+ * @package    animated-timeline-bundle
+ * @link       https://pdir.de
+ * @license    LGPL-3.0+
+ * @author     Philipp Seibt <develop@pdir.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+use Contao\Backend;
+use Contao\BackendUser;
+use Contao\DataContainer;
+use Contao\System;
+
+/*
+ * Animated timeline bundle for Contao Open Source CMS
+ *
+ * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -28,9 +49,9 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_orientation'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation'],
     'exclude' => true,
     'inputType' => 'select',
-    'options' => $GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'],
+    'options' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'],
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
-    'sql' => "TEXT null",
+    'sql' => 'TEXT null',
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_eventsPerSlide'] = [
@@ -85,37 +106,31 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStop_customTpl'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderSize'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['size'],
+    'label' => &$GLOBALS['TL_LANG']['MSC']['imgSize'],
     'exclude' => true,
     'inputType' => 'imageSize',
-    'eval' => array('rgxp'=>'natural', 'includeBlankOption'=>true, 'nospace'=>true, 'helpwizard'=>true, 'tl_class'=>'w50'),
-    'options_callback' => static function ()
-    {
-        return Contao\System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(Contao\BackendUser::getInstance());
-    },
-    'sql' => "TEXT null"
+    'reference' => &$GLOBALS['TL_LANG']['MSC'],
+    'eval' => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
+    'options_callback' => static fn () => System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(BackendUser::getInstance()),
+    'sql' => 'TEXT null',
 ];
 
 class tl_content_timeline extends Backend
 {
     /**
      * Return all content element templates as array.
-     *
-     * @param DataContainer $dc
-     *
-     * @return array
      */
-    public function getTimelineElementTemplates(DataContainer $dc)
+    public function getTimelineElementTemplates(DataContainer $dc): array
     {
         return $this->getTemplateGroup('ce_timeline_element');
     }
 
-    public function getTimelineStartTemplates(DataContainer $dc)
+    public function getTimelineStartTemplates(DataContainer $dc): array
     {
         return $this->getTemplateGroup('ce_timeline_start');
     }
 
-    public function getTimelineStopTemplates(DataContainer $dc)
+    public function getTimelineStopTemplates(DataContainer $dc): array
     {
         return $this->getTemplateGroup('ce_timeline_stop');
     }

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2019 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -16,11 +18,12 @@
 
 namespace Pdir\AnimatedTimelineBundle\Element;
 
+use Contao\BackendTemplate;
+use Contao\ContentElement;
 use Contao\FilesModel;
 use Contao\System;
-use Contao\File;
 
-class TimelineSliderElement extends \ContentElement
+class TimelineSliderElement extends ContentElement
 {
     /**
      * Template.
@@ -32,12 +35,12 @@ class TimelineSliderElement extends \ContentElement
     /**
      * Generate the content element.
      */
-    protected function compile()
+    protected function compile(): void
     {
         if (TL_MODE === 'BE') {
             $this->strTemplate = 'be_wildcard';
             /** @var BackendTemplate|object $objTemplate */
-            $objTemplate = new \BackendTemplate($this->strTemplate);
+            $objTemplate = new BackendTemplate($this->strTemplate);
             $this->Template = $objTemplate;
             $this->Template->title = $this->headline;
             $this->Template->text = $this->text;
@@ -46,24 +49,21 @@ class TimelineSliderElement extends \ContentElement
         $this->Template->addImage = false;
 
         // Add an image
-        if ($this->addImage && $this->singleSRC != '')
-        {
+        if ($this->addImage && '' !== $this->singleSRC) {
             $this->Template->addImage = true;
             $objModel = FilesModel::findByUuid($this->singleSRC);
 
-            if ($objModel !== null && is_file(System::getContainer()->getParameter('kernel.project_dir') . '/' . $objModel->path))
-            {
+            if (null !== $objModel && is_file(System::getContainer()->getParameter('kernel.project_dir').'/'.$objModel->path)) {
                 $this->singleSRC = $objModel->path;
                 $this->addImageToTemplate($this->Template, $this->arrData, null, null, $objModel);
             }
         }
 
         // Image Content Slider
-        if($this->multiSRC) {
-            $objFiles = \FilesModel::findMultipleByUuids(deserialize($this->multiSRC));
+        if ($this->multiSRC) {
+            $objFiles = FilesModel::findMultipleByUuids(deserialize($this->multiSRC));
             $this->Template->sliderImages = $objFiles;
             $this->Template->size = deserialize($this->contentSliderSize);
         }
-
     }
 }

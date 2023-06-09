@@ -101,5 +101,16 @@ jQuery(document).ready( function($) {
     }, 500);
   }
 
+  setTimeout(function(){
+    $('.ce_timelineSliderStart a[data-lightbox]').map(function() {
+      $(this).colorbox({
+        // Put custom options here
+        loop: false,
+        rel: $(this).attr('data-lightbox'),
+        maxWidth: '95%',
+        maxHeight: '95%'
+      });
+    });
+  }, 500);
 
 });
