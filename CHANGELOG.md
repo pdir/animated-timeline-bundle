@@ -11,7 +11,7 @@ Types of changes
 )
 
 
-## [1.2.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.1) – 2023-06-08
+## [1.2.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.1) – 2023-06-09
 
 - [Fixed] warnings in debug mode
 - [Fixed] lightbox ([#4](https://github.com/pdir/animated-timeline-bundle/issues/4))
