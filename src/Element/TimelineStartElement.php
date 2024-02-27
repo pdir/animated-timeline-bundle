@@ -38,8 +38,7 @@ class TimelineStartElement extends ContentElement
     {
         $request = System::getContainer()->get('request_stack')->getCurrentRequest();
 
-        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request))
-        {
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
             $this->strTemplate = 'be_wildcard';
 
             $objTemplate = new BackendTemplate($this->strTemplate);

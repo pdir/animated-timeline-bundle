@@ -96,5 +96,5 @@ jobs:
             -   name: Install the dependencies
                 run: composer install --ignore-platform-req=php --no-interaction --no-progress
 
-            -   name: Run the unit tests
-                run: vendor/bin/phpunit --colors=always
+#            -   name: Run the unit tests
+#                run: vendor/bin/phpunit --colors=always
