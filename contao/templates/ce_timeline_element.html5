@@ -11,7 +11,7 @@
           <?php while($this->sliderImages->next()): ?>
             <?php
             $meta = deserialize($this->sliderImages->meta);
-            $picture = \Picture::create($this->sliderImages->path, $this->size)->getTemplateData();
+            $picture = Contao\Picture::create($this->sliderImages->path, $this->size)->getTemplateData();
             if($meta && isset($meta[$GLOBALS['TL_LANGUAGE']])) {
               $picture['alt'] = specialchars($meta[$GLOBALS['TL_LANGUAGE']]['alt']);
               $picture['title'] = specialchars($meta[$GLOBALS['TL_LANGUAGE']]['title']);

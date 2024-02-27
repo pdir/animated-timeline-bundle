@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -16,12 +16,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
+use Contao\ArrayUtil;
 use Pdir\AnimatedTimelineBundle\Element\TimelineSliderElement;
 use Pdir\AnimatedTimelineBundle\Element\TimelineStartElement;
 use Pdir\AnimatedTimelineBundle\Element\TimelineStopElement;
 
 // Insert the mate theme category
-array_insert($GLOBALS['TL_CTE'], 1, ['pdirTimelineSlider' => []]);
+ArrayUtil::arrayInsert($GLOBALS['TL_CTE'], 1, ['pdirTimelineSlider' => []]);
 
 /*
  * Add content element

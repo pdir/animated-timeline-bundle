@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -16,15 +16,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-use Contao\Backend;
 use Contao\BackendUser;
-use Contao\DataContainer;
+use Contao\Controller;
 use Contao\System;
 
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -82,7 +81,9 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timelineElement_customTpl'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineElement_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => ['tl_content_timeline', 'getTimelineElementTemplates'],
+    'options_callback' => static function () {
+        return Controller::getTemplateGroup('ce_timeline_element');
+    },
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
     'sql' => "varchar(64) NOT NULL default ''",
 ];
@@ -91,7 +92,9 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStart_customTpl'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineStart_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => ['tl_content_timeline', 'getTimelineStartTemplates'],
+    'options_callback' => static function () {
+        return Controller::getTemplateGroup('ce_timeline_start');
+    },
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
     'sql' => "varchar(64) NOT NULL default ''",
 ];
@@ -100,7 +103,9 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStop_customTpl'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineStop_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => ['tl_content_timeline', 'getTimelineStopTemplates'],
+    'options_callback' => static function () {
+        return Controller::getTemplateGroup('ce_timeline_stop');
+    },
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
     'sql' => "varchar(64) NOT NULL default ''",
 ];
@@ -114,24 +119,3 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderSize'] = [
     'options_callback' => static fn () => System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(BackendUser::getInstance()),
     'sql' => 'TEXT null',
 ];
-
-class tl_content_timeline extends Backend
-{
-    /**
-     * Return all content element templates as array.
-     */
-    public function getTimelineElementTemplates(DataContainer $dc): array
-    {
-        return $this->getTemplateGroup('ce_timeline_element');
-    }
-
-    public function getTimelineStartTemplates(DataContainer $dc): array
-    {
-        return $this->getTemplateGroup('ce_timeline_start');
-    }
-
-    public function getTimelineStopTemplates(DataContainer $dc): array
-    {
-        return $this->getTemplateGroup('ce_timeline_stop');
-    }
-}
