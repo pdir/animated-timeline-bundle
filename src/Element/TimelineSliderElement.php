@@ -65,7 +65,7 @@ class TimelineSliderElement extends ContentElement
                     ->from($this->singleSRC)
                     ->setSize($this->size)
                     ->setMetadata($this->objModel->getOverwriteMetadata())
-                    ->enableLightbox(('1' === $this->fullsize || true === $this->fullsize) ? true : false)
+                    ->enableLightbox('1' === $this->fullsize || true === $this->fullsize ? true : false)
                     ->buildIfResourceExists()
                 ;
                 $figure?->applyLegacyTemplateData($this->Template, null, $this->floating);
@@ -84,7 +84,7 @@ class TimelineSliderElement extends ContentElement
                     ->createFigureBuilder()
                     ->from($objFiles->path)
                     ->setSize($size)
-                    ->enableLightbox(('1' === $this->contentSliderFullsize || true === $this->contentSliderFullsize) ? true : false)
+                    ->enableLightbox('1' === $this->contentSliderFullsize || true === $this->contentSliderFullsize ? true : false)
                     ->buildIfResourceExists()
                 ;
                 $sliderImages[] = $figure->getLegacyTemplateData();
