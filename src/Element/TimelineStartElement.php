@@ -49,6 +49,7 @@ class TimelineStartElement extends ContentElement
             $this->Template->eventsPerSlide = $this->timeline_eventsPerSlide;
             $this->Template->prevLabel = $this->timeline_prevLabel;
             $this->Template->nextLabel = $this->timeline_nextLabel;
+            $this->Template->navPos .= 'nav-'.$this->timeline_navPos;
         }
     }
 }

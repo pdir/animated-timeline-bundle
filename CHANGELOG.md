@@ -10,10 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.3.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.3.0) – 2024-02-28
+## [1.3.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.3.0) – 2024-02-29
 
 - [Added] Add contao 5.3 support
 - [Added] Add fields to change content slider settings
+- [Added] Add option to put the navigation on top of the timeline
 - [Changed] Requires Contao 4.13 and PHP 8.0 as minimum requirements
 
 ## [1.2.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.2.1) – 2023-06-08

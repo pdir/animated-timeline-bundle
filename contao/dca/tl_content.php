@@ -36,7 +36,7 @@ use Contao\System;
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{content_slider_legend},multiSRC,sliderDelay,sliderSpeed,sliderStartSlide,sliderContinuous,contentSliderSize,contentSliderFullsize;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide,timeline_prevLabel,timeline_nextLabel;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide,timeline_prevLabel,timeline_nextLabel,timeline_navPos;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStop'] = '{type_legend},type;{template_legend:hide},timelineStop_customTpl;{invisible_legend:hide},invisible,start,stop';
 
@@ -117,6 +117,14 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderFullsize'] = [
     'inputType' => 'checkbox',
     'eval' => ['tl_class'=>'w50'],
     'sql' => $GLOBALS['TL_DCA']['tl_content']['fields']['fullsize']['sql'],
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['timeline_navPos'] = [
+    'exclude' => true,
+    'inputType' => 'select',
+    'options' => &$GLOBALS['TL_LANG']['tl_content']['timeline_navPos']['options'],
+    'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
+    'sql' => 'TEXT null default "bottom"',
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['multiSRC']['eval']['isGallery'] = 'true';
