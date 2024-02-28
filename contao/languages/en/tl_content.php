@@ -28,3 +28,4 @@ $GLOBALS['TL_LANG']['tl_content']['timelineStart_customTpl'] = ['Custom template
 $GLOBALS['TL_LANG']['tl_content']['timelineStop_customTpl'] = ['Custom template', 'Here you can select an individual template.'];
 $GLOBALS['TL_LANG']['tl_content']['timeline_prevLabel'] = ['Label for prev-button', 'Here you can change the label of the prev-button.'];
 $GLOBALS['TL_LANG']['tl_content']['timeline_nextLabel'] = ['Label for next-button', 'Here you can change the label of the next-button.'];
+$GLOBALS['TL_LANG']['tl_content']['contentSliderFullsize'] = ['Full-size view/new window', 'Open the full-size image in a lightbox or the link in a new browser window'];

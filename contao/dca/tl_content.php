@@ -34,7 +34,7 @@ use Contao\System;
  * file that was distributed with this source code.
  */
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{content_slider_legend},multiSRC,sliderDelay,sliderSpeed,sliderStartSlide,sliderContinuous,contentSliderSize;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{content_slider_legend},multiSRC,sliderDelay,sliderSpeed,sliderStartSlide,sliderContinuous,contentSliderSize,contentSliderFullsize;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide,timeline_prevLabel,timeline_nextLabel;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 
@@ -45,7 +45,6 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStop'] = '{type_lege
  */
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_orientation'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation'],
     'exclude' => true,
     'inputType' => 'select',
     'options' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'],
@@ -54,7 +53,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_orientation'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_eventsPerSlide'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_eventsPerSlide'],
     'exclude' => true,
     'inputType' => 'text',
     'eval' => ['maxlength' => 10, 'rgxp' => 'digit', 'tl_class' => 'w50'],
@@ -62,7 +60,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_eventsPerSlide'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_prevLabel'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_prevLabel'],
     'exclude' => true,
     'inputType' => 'text',
     'eval' => ['tl_class' => 'w50'],
@@ -70,7 +67,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_prevLabel'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_nextLabel'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_nextLabel'],
     'exclude' => true,
     'inputType' => 'text',
     'eval' => ['tl_class' => 'w50'],
@@ -78,7 +74,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_nextLabel'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timelineElement_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineElement_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
     'options_callback' => static function () {
@@ -89,7 +84,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timelineElement_customTpl'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStart_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineStart_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
     'options_callback' => static function () {
@@ -100,7 +94,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStart_customTpl'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStop_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineStop_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
     'options_callback' => static function () {
@@ -118,6 +111,12 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderSize'] = [
     'eval' => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
     'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
     'sql' => 'TEXT null',
+];
+
+$GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderFullsize'] = [
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class'=>'w50'],
+    'sql' => $GLOBALS['TL_DCA']['tl_content']['fields']['fullsize']['sql'],
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['multiSRC']['eval']['isGallery'] = 'true';

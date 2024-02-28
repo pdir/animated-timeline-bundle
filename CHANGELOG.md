@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.3.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.3.0) – 2024-02-27
+## [1.3.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.3.0) – 2024-02-28
 
 - [Added] Add contao 5.3 support
 - [Added] Add fields to change content slider settings
