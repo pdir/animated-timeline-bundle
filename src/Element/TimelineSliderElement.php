@@ -68,7 +68,6 @@ class TimelineSliderElement extends ContentElement
                     ->enableLightbox($this->fullsize)
                     ->buildIfResourceExists()
                 ;
-
                 $figure?->applyLegacyTemplateData($this->Template, null, $this->floating);
             }
         }
@@ -76,8 +75,22 @@ class TimelineSliderElement extends ContentElement
         // Image Content Slider
         if ($this->multiSRC) {
             $objFiles = FilesModel::findMultipleByUuids(StringUtil::deserialize($this->multiSRC));
-            $this->Template->sliderImages = $objFiles;
-            $this->Template->size = StringUtil::deserialize($this->contentSliderSize);
+            $size = StringUtil::deserialize($this->contentSliderSize);
+            $sliderImages = [];
+
+            while ($objFiles->next()) {
+                $figure = System::getContainer()
+                    ->get('contao.image.studio')
+                    ->createFigureBuilder()
+                    ->from($objFiles->path)
+                    ->setSize($size)
+                    ->buildIfResourceExists()
+                ;
+                $sliderImages[] = $figure->getLegacyTemplateData();
+            }
+
+            $this->Template->sliderImages = $sliderImages;
+            $this->Template->config = $this->sliderDelay . ',' . $this->sliderSpeed . ',' . $this->sliderStartSlide . ',' . $this->sliderContinuous;
         }
     }
 }

@@ -6,23 +6,11 @@
 
   <?php if($this->sliderImages): ?>
     <div class="image-slider">
-      <div class="content-slider-roadmap" data-config="0,300,0,1">
+      <div class="content-slider-roadmap" data-config="<?= $this->config ?>">
         <div class="slider-wrapper">
-          <?php while($this->sliderImages->next()): ?>
-            <?php
-            $meta = deserialize($this->sliderImages->meta);
-            $picture = Contao\Picture::create($this->sliderImages->path, $this->size)->getTemplateData();
-            if($meta && isset($meta[$GLOBALS['TL_LANGUAGE']])) {
-              $picture['alt'] = specialchars($meta[$GLOBALS['TL_LANGUAGE']]['alt']);
-              $picture['title'] = specialchars($meta[$GLOBALS['TL_LANGUAGE']]['title']);
-            }
-            ?>
-            <div class="ce_image">
-              <figure class="image_container">
-                <?php $this->insert('picture_default', $picture); ?>
-              </figure>
-            </div>
-          <?php endwhile; ?>
+          <?php foreach($this->sliderImages as $sliderImage): ?>
+            <?php $this->insert('image', $sliderImage); ?>
+          <?php endforeach; ?>
         </div>
       </div>
       <nav class="slider-control-roadmap">
