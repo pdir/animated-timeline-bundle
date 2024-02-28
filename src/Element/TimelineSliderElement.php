@@ -91,7 +91,7 @@ class TimelineSliderElement extends ContentElement
             }
 
             $this->Template->sliderImages = $sliderImages;
-            $this->Template->config = $this->sliderDelay . ',' . $this->sliderSpeed . ',' . $this->sliderStartSlide . ',' . $this->sliderContinuous;
+            $this->Template->config = $this->sliderDelay.','.$this->sliderSpeed.','.$this->sliderStartSlide.','.$this->sliderContinuous;
         }
     }
 }
