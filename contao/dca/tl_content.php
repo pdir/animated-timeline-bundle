@@ -123,7 +123,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_navPos'] = [
     'exclude' => true,
     'inputType' => 'select',
     'options' => &$GLOBALS['TL_LANG']['tl_content']['timeline_navPos']['options'],
-    'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
+    'eval' => ['chosen' => true, 'tl_class' => 'w50'],
     'sql' => 'TEXT null default "bottom"',
 ];
 
