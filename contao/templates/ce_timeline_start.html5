@@ -1,4 +1,4 @@
-<div class="<?= $this->class ?> <?= $this->orientation ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+<div class="<?= $this->class ?> <?= $this->orientation ?> <?= $this->navPos ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 
 <div id="timeline<?= $this->id ?>"></div>
 

@@ -91,6 +91,21 @@
   }
 }
 
+.ce_timelineSliderStart.nav-top .roadmap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .roadmap__navigation {
+    order: 1;
+    margin-bottom: 20px;
+  }
+
+  .roadmap__events {
+    order: 2;
+  }
+}
+
 @media (min-width:993px) {
   .roadmap.roadmap--orientation-horizontal .roadmap__events__event, .roadmap.roadmap--orientation-auto .roadmap__events__event {
     &:nth-child(even) .event .event__date {

@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -16,15 +16,14 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-use Contao\Backend;
 use Contao\BackendUser;
-use Contao\DataContainer;
+use Contao\Controller;
 use Contao\System;
 
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -35,9 +34,9 @@ use Contao\System;
  * file that was distributed with this source code.
  */
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{content_slider_legend},multiSRC,contentSliderSize;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderElement'] = '{type_legend},type,headline;{text_legend},text;{image_legend},addImage;{content_slider_legend},multiSRC,sliderDelay,sliderSpeed,sliderStartSlide,sliderContinuous,contentSliderSize,contentSliderFullsize;{template_legend:hide},timelineElement_customTpl;{expert_legend:hide},cssID';
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide,timeline_prevLabel,timeline_nextLabel;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStart'] = '{type_legend},type;{timeline_legend},timeline_orientation,timeline_eventsPerSlide,timeline_prevLabel,timeline_nextLabel,timeline_navPos;{template_legend:hide},timelineStart_customTpl;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStop'] = '{type_legend},type;{template_legend:hide},timelineStop_customTpl;{invisible_legend:hide},invisible,start,stop';
 
@@ -46,7 +45,6 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['timelineSliderStop'] = '{type_lege
  */
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_orientation'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation'],
     'exclude' => true,
     'inputType' => 'select',
     'options' => &$GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'],
@@ -55,7 +53,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_orientation'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_eventsPerSlide'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_eventsPerSlide'],
     'exclude' => true,
     'inputType' => 'text',
     'eval' => ['maxlength' => 10, 'rgxp' => 'digit', 'tl_class' => 'w50'],
@@ -63,7 +60,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_eventsPerSlide'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_prevLabel'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_prevLabel'],
     'exclude' => true,
     'inputType' => 'text',
     'eval' => ['tl_class' => 'w50'],
@@ -71,7 +67,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_prevLabel'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_nextLabel'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timeline_nextLabel'],
     'exclude' => true,
     'inputType' => 'text',
     'eval' => ['tl_class' => 'w50'],
@@ -79,28 +74,31 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_nextLabel'] = [
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timelineElement_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineElement_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => ['tl_content_timeline', 'getTimelineElementTemplates'],
+    'options_callback' => static function () {
+        return Controller::getTemplateGroup('ce_timeline_element');
+    },
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
     'sql' => "varchar(64) NOT NULL default ''",
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStart_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineStart_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => ['tl_content_timeline', 'getTimelineStartTemplates'],
+    'options_callback' => static function () {
+        return Controller::getTemplateGroup('ce_timeline_start');
+    },
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
     'sql' => "varchar(64) NOT NULL default ''",
 ];
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['timelineStop_customTpl'] = [
-    'label' => &$GLOBALS['TL_LANG']['tl_content']['timelineStop_customTpl'],
     'exclude' => true,
     'inputType' => 'select',
-    'options_callback' => ['tl_content_timeline', 'getTimelineStopTemplates'],
+    'options_callback' => static function () {
+        return Controller::getTemplateGroup('ce_timeline_stop');
+    },
     'eval' => ['includeBlankOption' => true, 'chosen' => true, 'tl_class' => 'w50'],
     'sql' => "varchar(64) NOT NULL default ''",
 ];
@@ -111,27 +109,22 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderSize'] = [
     'inputType' => 'imageSize',
     'reference' => &$GLOBALS['TL_LANG']['MSC'],
     'eval' => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50'],
-    'options_callback' => static fn () => System::getContainer()->get('contao.image.image_sizes')->getOptionsForUser(BackendUser::getInstance()),
+    'options_callback' => static fn () => System::getContainer()->get('contao.image.sizes')->getOptionsForUser(BackendUser::getInstance()),
     'sql' => 'TEXT null',
 ];
 
-class tl_content_timeline extends Backend
-{
-    /**
-     * Return all content element templates as array.
-     */
-    public function getTimelineElementTemplates(DataContainer $dc): array
-    {
-        return $this->getTemplateGroup('ce_timeline_element');
-    }
+$GLOBALS['TL_DCA']['tl_content']['fields']['contentSliderFullsize'] = [
+    'inputType' => 'checkbox',
+    'eval' => ['tl_class'=>'w50'],
+    'sql' => $GLOBALS['TL_DCA']['tl_content']['fields']['fullsize']['sql'],
+];
 
-    public function getTimelineStartTemplates(DataContainer $dc): array
-    {
-        return $this->getTemplateGroup('ce_timeline_start');
-    }
+$GLOBALS['TL_DCA']['tl_content']['fields']['timeline_navPos'] = [
+    'exclude' => true,
+    'inputType' => 'select',
+    'options' => &$GLOBALS['TL_LANG']['tl_content']['timeline_navPos']['options'],
+    'eval' => ['chosen' => true, 'tl_class' => 'w50'],
+    'sql' => 'TEXT null default "bottom"',
+];
 
-    public function getTimelineStopTemplates(DataContainer $dc): array
-    {
-        return $this->getTemplateGroup('ce_timeline_stop');
-    }
-}
+$GLOBALS['TL_DCA']['tl_content']['fields']['multiSRC']['eval']['isGallery'] = 'true';

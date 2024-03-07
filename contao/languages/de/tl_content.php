@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -22,9 +22,13 @@ $GLOBALS['TL_LANG']['tl_content']['timeline_orientation'] = ['Ausrichtung', 'Wä
 $GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options']['horizontal'] = 'Horizontal';
 $GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options']['vertical'] = 'Vertikal';
 $GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options']['auto'] = 'Auto';
+$GLOBALS['TL_LANG']['tl_content']['timeline_navPos'] = ['Navigation Position', 'Wählen Sie hier aus ob die Navigation unten oder oben stehen soll.'];
+$GLOBALS['TL_LANG']['tl_content']['timeline_navPos']['options']['top'] = 'oben';
+$GLOBALS['TL_LANG']['tl_content']['timeline_navPos']['options']['bottom'] = 'unten';
 $GLOBALS['TL_LANG']['tl_content']['timeline_eventsPerSlide'] = ['Elemente pro Slide', 'Geben Sie hier die Anzahl der Elemente ein, die pro Slide dargestellt werden.'];
 $GLOBALS['TL_LANG']['tl_content']['timelineElement_customTpl'] = ['Individuelles Template', 'Hier können Sie ein individuelles Template auswählen.'];
 $GLOBALS['TL_LANG']['tl_content']['timelineStart_customTpl'] = ['Individuelles Template', 'Hier können Sie ein individuelles Template auswählen.'];
 $GLOBALS['TL_LANG']['tl_content']['timelineStop_customTpl'] = ['Individuelles Template', 'Hier können Sie ein individuelles Template auswählen.'];
 $GLOBALS['TL_LANG']['tl_content']['timeline_prevLabel'] = ['Zurück-Button', 'Hier können Sie definieren was angezeigt werden soll, wenn der Zurück-Button angezeigt wird.'];
 $GLOBALS['TL_LANG']['tl_content']['timeline_nextLabel'] = ['Weiter-Button', 'Hier können Sie definieren was angezeigt werden soll, wenn der Weiter-Button angezeigt wird.'];
+$GLOBALS['TL_LANG']['tl_content']['contentSliderFullsize'] = ['Großansicht/Neues Fenster', 'Großansicht des Bildes in einer Lightbox bzw. den Link in einem neuen Browserfenster öffnen.'];

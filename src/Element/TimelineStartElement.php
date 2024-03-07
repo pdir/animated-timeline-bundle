@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -19,8 +19,10 @@ declare(strict_types=1);
 namespace Pdir\AnimatedTimelineBundle\Element;
 
 use Contao\BackendTemplate;
+use Contao\ContentElement;
+use Contao\System;
 
-class TimelineStartElement extends \ContentElement
+class TimelineStartElement extends ContentElement
 {
     /**
      * Template.
@@ -34,9 +36,11 @@ class TimelineStartElement extends \ContentElement
      */
     protected function compile(): void
     {
-        if (TL_MODE === 'BE') {
+        $request = System::getContainer()->get('request_stack')->getCurrentRequest();
+
+        if ($request && System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
             $this->strTemplate = 'be_wildcard';
-            /** @var BackendTemplate|object $objTemplate */
+
             $objTemplate = new BackendTemplate($this->strTemplate);
             $this->Template = $objTemplate;
             $this->Template->wildcard = $GLOBALS['TL_LANG']['tl_content']['timeline_orientation'][0].': '.$GLOBALS['TL_LANG']['tl_content']['timeline_orientation']['options'][$this->timeline_orientation].' / '.$GLOBALS['TL_LANG']['tl_content']['timeline_eventsPerSlide'][0].': '.$this->timeline_eventsPerSlide;
@@ -45,6 +49,7 @@ class TimelineStartElement extends \ContentElement
             $this->Template->eventsPerSlide = $this->timeline_eventsPerSlide;
             $this->Template->prevLabel = $this->timeline_prevLabel;
             $this->Template->nextLabel = $this->timeline_nextLabel;
+            $this->Template->navPos .= 'nav-'.$this->timeline_navPos;
         }
     }
 }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * Animated timeline bundle for Contao Open Source CMS
  *
- * Copyright (c) 2023 pdir / digital agentur // pdir GmbH
+ * Copyright (c) 2024 pdir / digital agentur // pdir GmbH
  *
  * @package    animated-timeline-bundle
  * @link       https://pdir.de
@@ -19,5 +19,5 @@ declare(strict_types=1);
 $GLOBALS['TL_LANG']['CTE']['pdirTimelineSlider'] = 'Animated Timeline';
 
 $GLOBALS['TL_LANG']['CTE']['timelineSliderElement'][0] = 'Timeline Element';
-$GLOBALS['TL_LANG']['CTE']['timelineSliderStart'][0] = 'Umschlag (Anfang)';
-$GLOBALS['TL_LANG']['CTE']['timelineSliderStop'][0] = 'Umschlag (Stop)';
+$GLOBALS['TL_LANG']['CTE']['timelineSliderStart'][0] = 'Wrapper (Start)';
+$GLOBALS['TL_LANG']['CTE']['timelineSliderStop'][0] = 'Wrapper (Stop)';
