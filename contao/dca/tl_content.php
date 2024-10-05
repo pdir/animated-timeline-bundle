@@ -127,4 +127,23 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_navPos'] = [
     'sql' => 'TEXT null default "bottom"',
 ];
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['multiSRC']['eval']['isGallery'] = 'true';
+class tl_content extends Backend
+{
+    /**
+	 * Set default value in callback https://github.com/pdir/animated-timeline-bundle/issues/13
+	 *
+	 * @param mixed         $varValue
+	 * @param DataContainer $dc
+	 *
+	 * @return mixed
+	 */
+	public function setMultiSrcFlags($varValue, DataContainer $dc)
+	{
+		if ($dc->activeRecord)
+		{
+            $GLOBALS['TL_DCA']['tl_content']['fields']['multiSRC']['eval']['isGallery'] = true;
+		}
+
+		return $varValue;
+	}
+}
