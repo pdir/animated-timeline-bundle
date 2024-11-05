@@ -78,16 +78,18 @@ class TimelineSliderElement extends ContentElement
             $size = StringUtil::deserialize($this->contentSliderSize);
             $sliderImages = [];
 
-            while ($objFiles->next()) {
-                $figure = System::getContainer()
-                    ->get('contao.image.studio')
-                    ->createFigureBuilder()
-                    ->from($objFiles->path)
-                    ->setSize($size)
-                    ->enableLightbox('1' === $this->contentSliderFullsize || true === $this->contentSliderFullsize ? true : false)
-                    ->buildIfResourceExists()
-                ;
-                $sliderImages[] = $figure->getLegacyTemplateData();
+            if (!is_null($objFiles)) {
+                while ($objFiles->next()) {
+                    $figure = System::getContainer()
+                        ->get('contao.image.studio')
+                        ->createFigureBuilder()
+                        ->from($objFiles->path)
+                        ->setSize($size)
+                        ->enableLightbox('1' === $this->contentSliderFullsize || true === $this->contentSliderFullsize ? true : false)
+                        ->buildIfResourceExists()
+                    ;
+                    $sliderImages[] = $figure->getLegacyTemplateData();
+                }
             }
 
             $this->Template->sliderImages = $sliderImages;

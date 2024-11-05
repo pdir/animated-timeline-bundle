@@ -10,6 +10,11 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.3.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.3.1) – 2024-11-05
+
+- [Fixed] Add TimelineElementListeners for multiSRC field handling [[#15](https://github.com/pdir/animated-timeline-bundle/pull/15) Thanks to [cgoIT](https://github.com/cgoIT)]
+- [Fixed] Check if image slider is not null
+
 ## [1.3.0](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.3.0) – 2024-02-29
 
 - [Added] Add Contao 5.3 support
