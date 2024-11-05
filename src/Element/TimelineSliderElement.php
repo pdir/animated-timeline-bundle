@@ -78,7 +78,7 @@ class TimelineSliderElement extends ContentElement
             $size = StringUtil::deserialize($this->contentSliderSize);
             $sliderImages = [];
 
-            if (!is_null($objFiles)) {
+            if (null !== $objFiles) {
                 while ($objFiles->next()) {
                     $figure = System::getContainer()
                         ->get('contao.image.studio')

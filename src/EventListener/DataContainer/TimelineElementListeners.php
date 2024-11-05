@@ -13,6 +13,7 @@ class TimelineElementListeners
         if ($dc->activeRecord && 'timelineSliderElement' === $dc->activeRecord->type) {
             $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field]['eval']['isGallery'] = true;
         }
+
         return $varValue;
     }
 }
