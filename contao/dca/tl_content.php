@@ -126,5 +126,3 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['timeline_navPos'] = [
     'eval' => ['chosen' => true, 'tl_class' => 'w50'],
     'sql' => 'TEXT null default "bottom"',
 ];
-
-$GLOBALS['TL_DCA']['tl_content']['fields']['multiSRC']['eval']['isGallery'] = 'true';
