@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.3.2](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.3.2) – 2025-12-17
+
+- [Fixed] Removed legacy _instanceof service configuration for FrameworkAwareInterface and ContainerAwareInterface to ensure compatibility with Contao 5.4 and newer
+
 ## [1.3.1](https://github.com/contao-themes-net/animated-timeline-bundle/tree/1.3.1) – 2024-11-05
 
 - [Fixed] Add TimelineElementListeners for multiSRC field handling [[#15](https://github.com/pdir/animated-timeline-bundle/pull/15) Thanks to [cgoIT](https://github.com/cgoIT)]
